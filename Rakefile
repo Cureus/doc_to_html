@@ -15,12 +15,12 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "doc_to_html"
-  gem.homepage = "http://github.com/holoiii/doc_to_html"
+  gem.homepage = "https://github.com/Cureus/doc_to_html"
   gem.license = "MIT"
   gem.summary = %Q{TODO: one-line summary of your gem}
   gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "albert.peng@cureus.com"
-  gem.authors = ["Albert Peng"]
+  gem.email = "developers@cureus.com"
+  gem.authors = ["Cureus Developers"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

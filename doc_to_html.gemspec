@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = "doc_to_html"
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Albert Peng"]
+  s.authors = ["Cureus Developers"]
   s.date = "2013-03-29"
   s.description = "TODO: longer description of your gem"
-  s.email = "albert.peng@cureus.com"
+  s.email = "developers@cureus.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
     "spec/lib/converter_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/holoiii/doc_to_html"
+  s.homepage = "https://github.com/Cureus/doc_to_html"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
