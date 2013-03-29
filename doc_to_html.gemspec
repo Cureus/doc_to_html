@@ -8,16 +8,18 @@ Gem::Specification.new do |s|
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Cureus"]
+  s.authors = ["Albert Peng"]
   s.date = "2013-03-29"
   s.description = "TODO: longer description of your gem"
-  s.email = "developers@cureus.com"
+  s.email = "albert.peng@cureus.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
   ]
   s.files = [
     ".document",
+    ".pairs",
+    ".rspec",
     ".rvmrc",
     "Gemfile",
     "Gemfile.lock",
@@ -25,8 +27,11 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "doc_to_html.gemspec",
     "lib/doc_to_html.rb",
+    "lib/doc_to_html/configuration.rb",
     "lib/doc_to_html/converter.rb",
+    "spec/doc_to_html_spec.rb",
     "spec/lib/converter_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -40,15 +45,21 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<google_drive>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<pivotal_git_scripts>, [">= 0"])
     else
+      s.add_dependency(%q<google_drive>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<pivotal_git_scripts>, [">= 0"])
     end
   else
+    s.add_dependency(%q<google_drive>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<pivotal_git_scripts>, [">= 0"])
   end
 end
 
