@@ -1,0 +1,14 @@
+
+# .pairs - configuration for 'git pairs - configuration for 'git pair'
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  cb: Chris Barretto; chris.barretto
+  aa: Asad Akbar; asad.akbar
+  zc: Zach Chin; zachery.chin
+  ap: Albert Peng; albert.peng
+  js: Jay Swain; jay.swain
+email:
+  prefix: pair
+  domain: cureus.com
+  # no_solo_prefix: true
+#global: true
