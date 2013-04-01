@@ -25,8 +25,14 @@ describe DocToHtml::Converter do
 
     context "with a DocToHtml::Converter" do
       describe "#convert!" do
+        let(:converted_file_mock) { mock(readline: "some htmls") }
+
+        before do
+          converter.stub(:convert_file) { converted_file_mock }
+          converted_file_mock.stub(:rewind)
+        end
+
         it "should get a file from the google drive session" do
-          converter.stub(:convert_file) { mock(readline: "") }
           converter.should_receive(:upload_file)
           converter.convert!
         end
@@ -34,13 +40,18 @@ describe DocToHtml::Converter do
         it "should call convert_file on the newly uploaded file" do
           uploaded_file = mock("uploaded file")
           converter.stub(:upload_file) { uploaded_file }
-          converter.should_receive(:convert_file).with(uploaded_file) { mock(readline: "") }
+          converter.should_receive(:convert_file).with(uploaded_file) { converted_file_mock }
+          converter.convert!
+        end
+
+        it "should rewind the file" do
+          converter.stub(:upload_file)
+          converted_file_mock.should_receive(:rewind)
           converter.convert!
         end
 
         it "should return the contents of the file" do
           converter.stub(:upload_file)
-          converter.stub(:convert_file) { mock(readline: "some htmls") }
           converter.convert!.should == "some htmls"
         end
       end
