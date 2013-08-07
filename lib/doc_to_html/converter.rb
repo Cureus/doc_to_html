@@ -22,7 +22,14 @@ module DocToHtml
       return conversion if conversion
       @conversion = Tempfile.new('converted_file')
       conversion.binmode
-      google_drive_file.download_to_io(conversion, content_type: "text/html")
+
+      if google_drive_file.resource_type == "spreadsheet"
+        spreadsheet_content = google_drive_file.export_as_string("html")
+        conversion.write(spreadsheet_content) 
+      else
+        google_drive_file.download_to_io(conversion, content_type: "text/html")
+      end
+
       conversion
     end
 
