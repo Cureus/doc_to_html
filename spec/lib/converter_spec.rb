@@ -25,7 +25,7 @@ describe DocToHtml::Converter do
 
     context "with a DocToHtml::Converter" do
       describe "#convert!" do
-        let(:converted_file_mock) { mock(readline: "some htmls") }
+        let(:converted_file_mock) { mock(readlines: "some htmls") }
 
         before do
           converter.stub(:convert_file) { converted_file_mock }

@@ -11,7 +11,7 @@ module DocToHtml
       @google_drive_file = upload_file
       converted_file = convert_file
       converted_file.rewind
-      converted_file.readline
+      converted_file.readlines
     end
     
     def upload_file
