@@ -40,7 +40,7 @@ describe DocToHtml::Converter do
         it "should call convert_file on the newly uploaded file" do
           uploaded_file = mock("uploaded file")
           converter.stub(:upload_file) { uploaded_file }
-          converter.should_receive(:convert_file).with(uploaded_file) { converted_file_mock }
+          converter.should_receive(:convert_file)
           converter.convert!
         end
 
@@ -64,10 +64,32 @@ describe DocToHtml::Converter do
       end
 
       describe "#convert_file!" do
-        it "creates a new tempfile with the html-formatted google drive file" do
-          google_drive_file = mock("google file")
-          google_drive_file.should_receive(:download_to_io) 
-          converter.convert_file(google_drive_file)
+        let(:google_drive_file) { mock("google file") }
+
+        before do
+          converter.stub(:google_drive_file).and_return(google_drive_file)
+        end
+
+        context "when the google_drive_file is NOT XLS" do
+          before do
+            google_drive_file.stub(:resource_type).and_return("NOT XLS")
+          end
+
+          it "creates a new tempfile with the html-formatted google drive file" do
+            google_drive_file.should_receive(:download_to_io) 
+            converter.convert_file
+          end
+        end
+
+        context "when the google_drive_file IS XLS" do
+          before do
+            google_drive_file.stub(:resource_type).and_return("spreadsheet")
+          end
+
+          it "creates a new tempfile with the html-formatted google drive file" do
+            google_drive_file.should_receive(:export_as_string) 
+            converter.convert_file
+          end
         end
       end
     end
