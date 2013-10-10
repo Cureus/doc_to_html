@@ -54,6 +54,15 @@ describe DocToHtml::Converter do
           converter.stub(:upload_file)
           converter.convert!.should == "some htmls"
         end
+
+        context "when readlines called on the file return an array of strings" do
+          let(:converted_file_mock) { mock(readlines: ["some", "htmls"]) }
+
+          it "should return a string" do
+            converter.stub(:upload_file)
+            converter.convert!.should == "some htmls"
+          end
+        end
       end
 
       describe "#upload_file!" do

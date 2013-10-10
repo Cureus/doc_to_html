@@ -11,7 +11,8 @@ module DocToHtml
       @google_drive_file = upload_file
       converted_file = convert_file
       converted_file.rewind
-      converted_file.readlines
+      output = converted_file.readlines
+      (output.is_a?(Enumerable)) ? (output.join(' ')) : (output)
     end
     
     def upload_file
