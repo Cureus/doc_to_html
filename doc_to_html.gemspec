@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Cureus Developers"]
   s.date = "2013-08-08"
-  s.description = "TODO: longer description of your gem"
+  s.description = "This gem uses the google_drive gem to send your files to google and requests the html version of them."
   s.email = "developers@cureus.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "A simple api to convert .doc and .xls files to html"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
